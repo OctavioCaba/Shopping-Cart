@@ -2,10 +2,10 @@ import React from 'react'
 import AppFrame from '../components/AppFrame';
 import ListaProductos from '../components/ListaProductos';
 
-const MainPage = ({ productos, handleClick }) => {
+const MainPage = ({ productos, cantidadProductos }) => {
     return (
         <AppFrame productos={productos}>
-            <ListaProductos handleClick={handleClick} />
+            <ListaProductos cantidadProductos={cantidadProductos} />
         </AppFrame>
     )
 }

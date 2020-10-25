@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import Total from './Total'
 
-const ListaCarrito = ({ arrayProductos }) => {
+const ListaCarrito = ({ arrayProductos, calculoTotal, cantidadProductos }) => {
     const [estadoListaProductos, setEstadoListaProductos] = useState(arrayProductos)
 
     const borrarProducto = (estadoListaProductos, pId) => {
         const nuevoArrayProductos = [...estadoListaProductos].filter(q => q.id !== pId)
         console.log(nuevoArrayProductos)
+        
         setEstadoListaProductos(nuevoArrayProductos)
     }
 
@@ -46,7 +47,7 @@ const ListaCarrito = ({ arrayProductos }) => {
                 </table>
                 <div className="data-resumen">
                     <div className="total">
-                        <Total arrayProductos={estadoListaProductos} />
+                        <Total estadoListaProductos={estadoListaProductos} /* data={data} */ calculoTotal={calculoTotal} />
                     </div>
                     <div className="btn-comprar">
                         <button className="btn btn-success btn-lg" onClick={() => alert("¡Gracias por su compra!")}>

@@ -18,17 +18,17 @@ const precios = [10, 12, 13, 14, 15, 18, 19, 19, 19, 19, 1, 36]
 const nombres = []
 const imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, imagen8, imagen9, imagen10, imagen11, imagen12]
 
-const renderProductos = handleClick => {
+const renderProductos = cantidadProductos => {
     const renderProducto = (img, i) => (
-        <Producto key={i} id={i} nombre="Camisa de Hombre" url={imagenes[`${img - 1}`]} precio={precios[`${img - 1}`]} handleClick={handleClick} />
+        <Producto key={i} id={i} nombre="Camisa de Hombre" url={imagenes[`${img - 1}`]} precio={precios[`${img - 1}`]} cantidadProductos={cantidadProductos} />
     )
     return imgs.map(renderProducto)
 }
 
-const ListaProductos = ({ handleClick }) => {
+const ListaProductos = ({ cantidadProductos }) => {
     return (
         <div className="lista-productos">
-            {renderProductos(handleClick)}
+            {renderProductos(cantidadProductos)}
         </div>
     )
 }

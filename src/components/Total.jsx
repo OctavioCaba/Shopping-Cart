@@ -1,28 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
-/* const calculoTotal = () =>{
-    const [total, setTotal] = useState(0)
-    setTotal(precioTotal)
-    return total
-} */
-
-const Total = ({ arrayProductos }) => {
-    let precioTotal = 0
-
-    arrayProductos.map(p => {
-        precioTotal += p.precio
-    })
+const Total = ({ estadoListaProductos, calculoTotal }) => {
+    let total = calculoTotal(estadoListaProductos)
 
     return (
         <div>
-            Total: ${precioTotal}
+            Total: ${total}
         </div>
     )
 }
 
 Total.propTypes = {
-    arrayProductos: PropTypes.array.isRequired
+    estadoListaProductos: PropTypes.array.isRequired,
+    calculoTotal: PropTypes.func.isRequired
 }
 
 export default Total
