@@ -1,37 +1,28 @@
-import React, { useState, /* useMemo, */ useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import CartPage from './pages/CartPage';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
-let arrayProductos = new Array()
+let i = 1
 
 function App() {
   const [productos, setProductos] = useState(0)
+  const [arrayProductos, setArrayProductos] = useState([])
 
-
-  /*const [total, setTotal] = useState(0)
-
-   const actions = useMemo(() => (
-    {
-      onSetTotal
-    }
-  ), [onSetTotal])
-
-  const data = useMemo(() => (
-    {
-      total
-    }
-  ), [total]) */
-
-  const agregarProducto = useCallback((precio, nombre, id) => {
-    arrayProductos.push({ id: id, nombre: nombre, precio: precio })
+  const agregarProducto = useCallback((precio, nombre) => {
+    console.log(i)
+    arrayProductos.push({ id: i, nombre: nombre, precio: precio })
+    setArrayProductos(arrayProductos)
     setProductos(arrayProductos.length)
+    i++
   }, [productos])
 
-  const eliminarProducto = useCallback(arrayProductos => {
-    setProductos(arrayProductos.length)
+  const eliminarProducto = useCallback((arrayProductos, pId) => {
+    const nuevoArrayProductos = [...arrayProductos].filter(q => q.id !== pId)
+    setArrayProductos(nuevoArrayProductos)
+    setProductos(nuevoArrayProductos.length)
   }, [productos])
 
   const calculoTotal = useCallback(arrayProductos => {

@@ -1,19 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Total from './Total'
 
 const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
-    const [estadoListaProductos, setEstadoListaProductos] = useState(arrayProductos)
-
-    const borrarProducto = (estadoListaProductos, pId) => {
-        const nuevoArrayProductos = [...estadoListaProductos].filter(q => q.id !== pId)
-        console.log(nuevoArrayProductos)
-        setEstadoListaProductos(nuevoArrayProductos)
-        eliminarProducto(nuevoArrayProductos)
-        renderListaProductos(estadoListaProductos)
-        console.log(arrayProductos)
-    }
-
-    const renderListaProductos = estadoListaProductos => {
+    const renderListaProductos = arrayProductos => {
         const renderLista = (p, i) => (
             <tr key={i}>
                 <th scope="row">{i + 1}</th>
@@ -21,12 +10,12 @@ const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
                 <td>${p.precio}</td>
                 <td><button
                     className="btn btn-outline-danger"
-                    onClick={() => { borrarProducto(estadoListaProductos, p.id) }}>
+                    onClick={() => eliminarProducto(arrayProductos, p.id)}>
                     &Chi;
                 </button></td>
             </tr>
         )
-        return estadoListaProductos.map(renderLista)
+        return arrayProductos.map(renderLista)
     }
 
     if (arrayProductos.length > 0) {
@@ -43,16 +32,19 @@ const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
                     </thead>
                     <tbody>
                         {
-                            renderListaProductos(estadoListaProductos)
+                            renderListaProductos(arrayProductos)
                         }
                     </tbody>
                 </table>
                 <div className="data-resumen">
                     <div className="total">
-                        <Total estadoListaProductos={estadoListaProductos} /* data={data} */ calculoTotal={calculoTotal} />
+                        <Total arrayProductos={arrayProductos} calculoTotal={calculoTotal} />
                     </div>
                     <div className="btn-comprar">
-                        <button className="btn btn-success btn-lg" onClick={() => alert("¡Gracias por su compra!")}>
+                        <button
+                            className="btn btn-success btn-lg"
+                            onClick={() => alert("¡Gracias por su compra!")}
+                        >
                             Comprar
                     </button>
                     </div>
@@ -61,7 +53,7 @@ const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
         )
     } else {
         return (
-            <p>
+            <p className="carrito-vacio">
                 No hay productos en el carrito
             </p>
         )

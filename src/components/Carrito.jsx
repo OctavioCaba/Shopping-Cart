@@ -19,9 +19,12 @@ const Carrito = ({ productos }) => {
                             history.location.pathname == "/" ?
                                 <CartIcon />
                                 :
-                                <button className="btn btn-inicio btn btn-outline-dark" onClick={clickHandler}>
+                                <button
+                                    className="btn btn-inicio btn btn-outline-dark"
+                                    onClick={clickHandler}
+                                >
                                     Inicio
-                    </button>
+                                </button>
                         }
                     </div>
                     :
@@ -31,9 +34,12 @@ const Carrito = ({ productos }) => {
                             history.location.pathname == "/" ?
                                 <CartIcon />
                                 :
-                                <button className="btn btn-inicio btn btn-outline-dark" onClick={clickHandler}>
+                                <button
+                                    className="btn btn-inicio btn btn-outline-dark"
+                                    onClick={clickHandler}
+                                >
                                     Inicio
-                    </button>
+                                </button>
                         }
                     </div>
             }

@@ -20,7 +20,14 @@ const imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7,
 
 const renderProductos = agregarProducto => {
     const renderProducto = (img, i) => (
-        <Producto key={i} id={i} nombre="Camisa de Hombre" url={imagenes[`${img - 1}`]} precio={precios[`${img - 1}`]} agregarProducto={agregarProducto} />
+        <Producto
+            key={i}
+            id={i}
+            nombre="Camisa de Hombre"
+            url={imagenes[`${img - 1}`]}
+            precio={precios[`${img - 1}`]}
+            agregarProducto={agregarProducto}
+        />
     )
     return imgs.map(renderProducto)
 }

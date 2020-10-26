@@ -14,10 +14,15 @@ const Producto = ({ url, nombre, precio, agregarProducto, id }) => {
                 <div className="nombre">
                     {nombre}
                 </div>
-                <div className="Precio">
+                <div className="precio">
                     ${precio}
                 </div>
-                <button className="btn btn-dark" type="button" role="button" onClick={() => agregarProducto(precio, nombre, id)}>
+                <button
+                    className="btn btn-dark"
+                    type="button"
+                    role="button"
+                    onClick={() => agregarProducto(precio, nombre)}
+                >
                     Añadir al carrito
                 </button>
             </div>

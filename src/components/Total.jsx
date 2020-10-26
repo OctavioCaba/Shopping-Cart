@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Total = ({ estadoListaProductos, calculoTotal }) => {
-    let total = calculoTotal(estadoListaProductos)
+const Total = ({ arrayProductos, calculoTotal }) => {
+    let total = calculoTotal(arrayProductos)
 
     return (
         <div>
@@ -12,7 +12,7 @@ const Total = ({ estadoListaProductos, calculoTotal }) => {
 }
 
 Total.propTypes = {
-    estadoListaProductos: PropTypes.array.isRequired,
+    arrayProductos: PropTypes.array.isRequired,
     calculoTotal: PropTypes.func.isRequired
 }
 

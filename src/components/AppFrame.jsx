@@ -9,7 +9,17 @@ const AppFrame = ({ children, productos }) => {
                 {children}
             </div>
             <footer className="card-footer text-muted text-center footer">
-                Ideado y Programado por Octavio Caba
+                <p>Ideado y Programado por Octavio Caba</p>
+                <p className="creditos">
+                    &copy; Fotos cortesía de
+                    <a
+                        href="https://www.pexels.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span> pexels.com</span>
+                    </a>
+                </p>
             </footer>
         </div>
     )
