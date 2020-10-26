@@ -9,8 +9,8 @@ let arrayProductos = new Array()
 
 function App() {
   const [productos, setProductos] = useState(0)
-  
-  
+
+
   /*const [total, setTotal] = useState(0)
 
    const actions = useMemo(() => (
@@ -25,9 +25,13 @@ function App() {
     }
   ), [total]) */
 
-  const cantidadProductos = useCallback((precio, nombre, id) => {
-    setProductos(productos + 1)
+  const agregarProducto = useCallback((precio, nombre, id) => {
     arrayProductos.push({ id: id, nombre: nombre, precio: precio })
+    setProductos(arrayProductos.length)
+  }, [productos])
+
+  const eliminarProducto = useCallback(arrayProductos => {
+    setProductos(arrayProductos.length)
   }, [productos])
 
   const calculoTotal = useCallback(arrayProductos => {
@@ -43,10 +47,15 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <MainPage productos={productos} cantidadProductos={cantidadProductos} />
+            <MainPage productos={productos} agregarProducto={agregarProducto} />
           </Route>
           <Route path="/carrito">
-            <CartPage productos={productos} arrayProductos={arrayProductos} calculoTotal={calculoTotal} cantidadProductos={cantidadProductos} />
+            <CartPage
+              productos={productos}
+              arrayProductos={arrayProductos}
+              calculoTotal={calculoTotal}
+              eliminarProducto={eliminarProducto}
+            />
           </Route>
           <Route>
             <NotFoundPage />

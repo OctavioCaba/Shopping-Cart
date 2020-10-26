@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import Total from './Total'
 
-const ListaCarrito = ({ arrayProductos, calculoTotal, cantidadProductos }) => {
+const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
     const [estadoListaProductos, setEstadoListaProductos] = useState(arrayProductos)
 
     const borrarProducto = (estadoListaProductos, pId) => {
         const nuevoArrayProductos = [...estadoListaProductos].filter(q => q.id !== pId)
         console.log(nuevoArrayProductos)
-        
         setEstadoListaProductos(nuevoArrayProductos)
+        eliminarProducto(nuevoArrayProductos)
+        renderListaProductos(estadoListaProductos)
+        console.log(arrayProductos)
     }
 
     const renderListaProductos = estadoListaProductos => {
