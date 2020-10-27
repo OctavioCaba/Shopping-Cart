@@ -12,11 +12,11 @@ const Carrito = ({ productos }) => {
     return (
         <div className="alert alert-primary">
             {
-                history.location.pathname == "/carrito" ?
+                history.location.pathname === "/carrito" ?
                     <div style={{ justifyContent: "space-between" }} className="carrito">
                         <h4>Productos en carrito: {productos}</h4>
                         {
-                            history.location.pathname == "/" ?
+                            history.location.pathname === "/" ?
                                 <CartIcon />
                                 :
                                 <button
@@ -28,20 +28,30 @@ const Carrito = ({ productos }) => {
                         }
                     </div>
                     :
-                    <div className="carrito">
-                        <h4>Productos en carrito: {productos}</h4>
-                        {
-                            history.location.pathname == "/" ?
-                                <CartIcon />
-                                :
-                                <button
-                                    className="btn btn-inicio btn btn-outline-dark"
-                                    onClick={clickHandler}
-                                >
-                                    Inicio
-                                </button>
-                        }
-                    </div>
+                    history.location.pathname === "/" ?
+                        <div className="carrito">
+                            <h4>Productos en carrito: {productos}</h4>
+                            {
+                                history.location.pathname === "/" ?
+                                    <CartIcon />
+                                    :
+                                    <button
+                                        className="btn btn-inicio btn btn-outline-dark"
+                                        onClick={clickHandler}
+                                    >
+                                        Inicio
+                                    </button>
+                            }
+                        </div>
+                        :
+                        <div style={{ justifyContent: "flex-end" }} className="carrito">
+                            <button
+                                className="btn btn-inicio btn btn-outline-dark"
+                                onClick={clickHandler}
+                            >
+                                Inicio
+                            </button>
+                        </div>
             }
         </div>
     )

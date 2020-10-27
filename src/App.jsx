@@ -40,7 +40,7 @@ function App() {
           <Route exact path="/">
             <MainPage productos={productos} agregarProducto={agregarProducto} />
           </Route>
-          <Route path="/carrito">
+          <Route exact path="/carrito">
             <CartPage
               productos={productos}
               arrayProductos={arrayProductos}

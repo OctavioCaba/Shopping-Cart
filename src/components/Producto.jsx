@@ -17,14 +17,17 @@ const Producto = ({ url, nombre, precio, agregarProducto, id }) => {
                 <div className="precio">
                     ${precio}
                 </div>
-                <button
-                    className="btn btn-dark"
-                    type="button"
-                    role="button"
-                    onClick={() => agregarProducto(precio, nombre)}
-                >
-                    Añadir al carrito
-                </button>
+                <div className="btn-group">
+                    <button
+                        className="btn btn-dark"
+                        type="button"
+                        role="button"
+                        onClick={() => agregarProducto(precio, nombre)}
+                    >
+                        Añadir al carrito
+                    </button>
+                    <small>Hacer click en el botón tantas veces como cantidad de prendas se desee añadir al carrito</small>
+                </div>
             </div>
         </div>
     )

@@ -27,7 +27,7 @@ const ListaCarrito = ({ arrayProductos, calculoTotal, eliminarProducto }) => {
                             <th scope="col">#</th>
                             <th scope="col">Producto</th>
                             <th scope="col">Precio</th>
-                            <th scope="col">Quitar de la lsita</th>
+                            <th scope="col">Quitar de la lista</th>
                         </tr>
                     </thead>
                     <tbody>
