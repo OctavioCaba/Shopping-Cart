@@ -1,3 +1,22 @@
+## Shopping-Cart
+
+Shopping Cart desarrollado con ReactJs.
+
+Descripción:
+Carrito de comercio de venta de ropa realizado con React.js y Bootstrap. Proyecto creado con el fin didáctico de mejorar en el uso de la susodicha librería de JavaScript. 
+
+Aclaración:
+Las fotos son cortesía de pexels.com, y los precios son totalmente inventados por mí, al igual que el logo de la página.
+
+Funcionamiento:
+Hacer click en el botón "Añadir al carrito" el producto hará lo que el botón indica, si se desea añadir más unidades de dicho producto, se deberá hacer click en el botón nuevamente.
+En la parte superior se podrá ver la cantidad de productos en el carrito, y un ícono con forma de carrito de supermercado. Al hacer click sobre el ícono se podrá ver, de haberlos, en una lista de los productos añadidos al carrito.
+Esta lista contiene el nombre del producto, el precio, y un botón para quitar el prodcuto de la lista de compras. Cada producto añadido aparecerá de forma unitaria en la lista. Es decir, que si agregamos dos unidades de una misma prenda, se verá representado como dos filas de la lista distintas, con la misma información mostrada.
+
+Proyecto diseñado y programado por Octavio Caba.
+
+**********************************************************************************************************
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
